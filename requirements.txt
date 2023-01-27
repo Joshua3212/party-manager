@@ -1,2 +1,2 @@
-fastapi
-huddu-python
+django
+huddu

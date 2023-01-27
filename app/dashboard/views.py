@@ -1,6 +1,6 @@
 import secrets
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 from app.config import store
 
@@ -20,7 +20,6 @@ def register_customer(request):
 
         store.put(
             token, customer
-
         )
 
-        return redirect("/register")
+        return render(request, "register_customer.html", {"success": True})

@@ -13,10 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
+from django.urls import path, include
 
 from dashboard.views import register_customer
 
 urlpatterns = [
-    path("register", register_customer)
+    path("register", register_customer), path("__reload__/", include("django_browser_reload.urls")),
 ]

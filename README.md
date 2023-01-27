@@ -7,3 +7,4 @@ A dead simple ticketing system
 - HUDDU_STORE_TOKEN
 - HUDDU_SPACE_ID
 - HUDDU_REGION
+

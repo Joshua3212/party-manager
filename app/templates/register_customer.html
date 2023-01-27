@@ -1,15 +1,24 @@
 {%extends "base.html"%}{%block main%}
 
+<div class="wrapper">
+  <h1>Kunden registrieren</h1>
+  <hr/>
+  {%if success%}
+  <flash>
+    Neue Buchung erfolgreich hinzugefügt ✅
+  </flash>
+  {%endif%}
+  <form method="post">
+    {%csrf_token%}
+    <label>Vorname</label>
+    <input required name="first_name"/>
+    <label>Nachname</label>
+    <input required name="last_name"/>
+    <label>Geb. Datum</label>
+    <input required name="birthdate" type="date"/>
 
-<form method="post">
-<label>Vorname</label>
-	<input name="first_name"/>
-<label>Nachname</label>
-	<input name="last_name"/>
-<label>Geb. Datum</label>
-	<input name="birthdate" type="date"/>
-
-	<button>Erstellen</button>
-</form>
+    <button>Erstellen</button>
+  </form>
+</div>
 
 {%endblock %}

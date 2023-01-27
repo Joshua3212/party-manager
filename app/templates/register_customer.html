@@ -1,1 +1,15 @@
-{%extends "base.html"%}{%block main%}test{%endblock %}
+{%extends "base.html"%}{%block main%}
+
+
+<form method="post">
+<label>Vorname</label>
+	<input name="first_name"/>
+<label>Nachname</label>
+	<input name="last_name"/>
+<label>Geb. Datum</label>
+	<input name="birthdate" type="date"/>
+
+	<button>Erstellen</button>
+</form>
+
+{%endblock %}

@@ -1,0 +1,42 @@
+{%extends "base.html"%}{%block main%}
+
+<div class="wrapper">
+  <h1>Kunden</h1>
+  <hr/>
+
+  <table>
+    <thead>
+    <tr>
+      <td>
+        Vorname
+      </td><td>
+        Nachname
+      </td><td>
+        Geburtsdatum
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+
+  {% for i in customers%}
+  <tr>
+    <td>
+
+    {{i.first_name}}
+    </td>
+    <td>
+
+    {{i.last_name}}
+    </td>
+<td>
+
+    {{i.birthdate}}
+</td>
+  </tr>
+  {% endfor%}
+    </tbody>
+  </table>
+
+</div>
+
+{%endblock %}

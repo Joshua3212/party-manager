@@ -23,3 +23,10 @@ def register_customer(request):
         )
 
         return render(request, "register_customer.html", {"success": True})
+
+
+def customers(request):
+    if request.method == "GET":
+        return render(request, "customers.html", {
+            "customers": store.list(request.GET.get("limit", 25), request.GET.get("skip", 0))
+        })

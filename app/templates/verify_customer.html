@@ -14,10 +14,12 @@
     <pre>{{error}}</pre>
   </flash-danger>
   {%endif%}
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {%csrf_token%}
+    <label>Scan QR</label>
+    <input type="file" name="qr" accept="image/*;capture=camera">
     <label>Token</label>
-    <input required name="token"/>
+    <input name="token"/>
     <button>Verifizieren</button>
   </form>
 </div>

@@ -2,3 +2,4 @@ django
 huddu
 requests
 django-browser-reload
+opencv-python

@@ -5,12 +5,13 @@
   <hr/>
   {%if success%}
   <flash>
-	  {{success}}
+    <pre>{{success}}</pre>
   </flash>
   {%endif%}
   {%if error%}
   <flash-danger>
-	  {{error}}
+
+    <pre>{{error}}</pre>
   </flash-danger>
   {%endif%}
   <form method="post">

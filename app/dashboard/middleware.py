@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
 
-from app import config
+from app.config import config
 
 
 class AuthMiddleware():
@@ -8,15 +8,14 @@ class AuthMiddleware():
         self.get_response = get_response
 
     def __call__(self, request):
-
-        if not config.config:
+        if not config:
             raise Exception("Huddu Store config has to be defined; Check README.md for more info ")
 
-        if not request.COOKIES.get("x-password") == password or not request.COOKIES.get("x-username") == username:
+        for i in config["users"]:
+            if request.COOKIES.get("x-password") == i['password'] and request.COOKIES.get("x-username") == i[
+                "username"]:
+                return self.get_response(request)
+
+        if not request.path == "/" or not request.GET.get("login"):
             return redirect("/?login=1")
-
-        if request.GET.get("login") and request.COOKIES.get("x-password") == password and request.COOKIES.get(
-                "x-username") == username:
-            return redirect("/")
-
         return self.get_response(request)

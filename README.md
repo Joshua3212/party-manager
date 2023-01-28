@@ -17,7 +17,7 @@ it should look something like this:
         "users": [
             {
                 "username": "user1",
-                "password": "password1
+                "password": "password1"
             }
         ]
     }

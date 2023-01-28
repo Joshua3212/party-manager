@@ -1,0 +1,63 @@
+{%extends "base.html"%}{%block main%}
+
+<div class="wrapper">
+  <h1>Party-Manager Dashboard</h1>
+  <hr/>
+
+
+
+   <script>
+var today = new Date();
+  var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+
+  function setCookie(name, value)
+  {
+    document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+  }
+function putCookie(form)
+                //this should set the UserName cookie to the proper value;
+  {
+   setCookie("x-username", form[0].username.value);
+   setCookie("x-password", form[0].password.value);
+
+    return true;
+  }
+
+const cookie =  document.cookie.match(/^(.*;)?\s*x-username\s*=\s*[^;]+(.*)?$/)
+console.log(cookie)
+  </script>
+
+
+    {%if request.GET.login %}
+  <form>
+    <label>Username</label>
+ <input type="text" name="username">
+    <label>Password</label>
+ <input type="text" name="password">
+    <button id="submit" onclick="putCookie(document.getElementsByTagName('form'));">Login</button>
+</form>
+    {%else%}
+
+
+
+
+
+
+  <div style="display:flex; flex-direction: row; flex-grow:column">
+
+  <card onclick="document.location = '/register'" style="width:100%">
+    Kunden registrieren
+  </card>
+  <card onclick="document.location = '/verify'" style="width:100%">
+    Kunden verifizieren
+  </card>
+  <card onclick="document.location = '/customers'" style="width:100%">
+    Alle Kunden
+  </card>
+  </div>
+
+    {%endif%}
+
+</div>
+
+{%endblock %}

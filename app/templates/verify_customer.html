@@ -1,0 +1,24 @@
+{%extends "base.html"%}{%block main%}
+
+<div class="wrapper">
+  <h1>Kunden registrieren</h1>
+  <hr/>
+  {%if success%}
+  <flash>
+	  {{success}}
+  </flash>
+  {%endif%}
+  {%if error%}
+  <flash-danger>
+	  {{error}}
+  </flash-danger>
+  {%endif%}
+  <form method="post">
+    {%csrf_token%}
+    <label>Token</label>
+    <input required name="token"/>
+    <button>Verifizieren</button>
+  </form>
+</div>
+
+{%endblock %}

@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.urls import path, include
 
-from dashboard.views import register_customer, customers
+from dashboard.views import register_customer, customers, verify_customer, index
 
 urlpatterns = [
     path("register", register_customer),
+    path("verify", verify_customer),
     path("customers", customers),
+    path("", index),
     path("__reload__/", include("django_browser_reload.urls")),
 ]

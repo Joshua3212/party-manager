@@ -7,3 +7,5 @@ store = Store(
     space_id=os.getenv("huddu_space_id".upper()),
     region=os.getenv("huddu_region".upper()),
 )
+
+config = store.get("config")

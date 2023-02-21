@@ -4,13 +4,36 @@
   <h1>Kunden registrieren</h1>
   <hr/>
   {%if success%}
-  <flash>
-    <pre>{{success}}</pre>
-  </flash>
+  <flash>Kunden gefunden ✅ </flash>
+
+
+  <table>
+    <thead>
+
+    </thead>
+    <tbody>
+
+    {%for k,v in success.items%}
+
+    <tr style="gap:0">
+      <td>
+        <bold>
+          {{k}}
+        </bold>
+      </td>
+      <td>{{v}}</td>
+    </tr>
+
+
+    {%endfor%}
+    </tbody>
+  </table>
+
+
+
   {%endif%}
   {%if error%}
   <flash-danger>
-
     <pre>{{error}}</pre>
   </flash-danger>
   {%endif%}
@@ -18,8 +41,8 @@
     {%csrf_token%}
     <label>Scan QR</label>
     <input type="file" name="qr" accept="image/*;capture=camera">
-    <label>Token</label>
-    <input name="token"/>
+    <label>Kartennummer</label>
+    <input name="identifier"/>
     <button>Verifizieren</button>
   </form>
 </div>

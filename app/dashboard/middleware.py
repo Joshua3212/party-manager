@@ -15,8 +15,8 @@ class AuthMiddleware:
 
         for i in config["users"]:
             if (
-                    request.COOKIES.get("x-password") == i["password"]
-                    and request.COOKIES.get("x-username") == i["username"]
+                request.COOKIES.get("x-password") == i["password"]
+                and request.COOKIES.get("x-username") == i["username"]
             ):
                 return self.get_response(request)
 

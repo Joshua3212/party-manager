@@ -20,7 +20,7 @@ def register_customer(request):
             "last_name": request.POST.get("last_name"),
             "birthdate": request.POST.get("birthdate"),
             "seat": request.POST.get("seat"),
-            "created": int(time.time())
+            "created": int(time.time()),
         }
 
         store.put(request.POST.get("identifier"), customer)

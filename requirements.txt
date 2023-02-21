@@ -3,3 +3,5 @@ huddu
 requests
 django-browser-reload
 opencv-python
+jinja2
+pdfkit

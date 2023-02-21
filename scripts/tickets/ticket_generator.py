@@ -27,4 +27,5 @@ for i in range(1, tickets_to_gen + 1):
 
     template = jinja2.Environment(loader=fs).get_template("template.html")
     output_html = template.render(context)
+    print(output_html)
     output_pdf = pdfkit.from_string(output_html, f"./tickets/{i}.pdf")

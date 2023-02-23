@@ -1,20 +1,84 @@
-<html style="margin: 0;font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
-          Roboto, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-          sans-serif;">
-  <head style="margin: 0;font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
-          Roboto, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-          sans-serif;">
+<html>
+  <head>
+    <style>
+      * {
+        border-radius: 10px;
+        margin: 0;
+      }
+      .card {
+        color: white;
+        background: black;
+        background: {{bg_gradient}} !important;
 
+
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        width: 1000px;
+        height: 700px;
+        padding: 50px;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      h1 {
+      }
+      bold {
+        font-weight: bolder;
+      }
+    </style>
   </head>
-  <body style="margin: 0;font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
-          Roboto, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-          sans-serif;">
-    <div class="card" style="margin: 0;font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
-          Roboto, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-          sans-serif;height: 100vh;padding: 50px;color: white;background: linear-gradient(blue, red);">
-      <h1 style="margin: 0;font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
-          Roboto, Oxygen, Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-          sans-serif;">{{i}}</h1>
+  <body>
+    <div class="card">
+      <img style="
+          position: absolute;
+          z-index: 0;
+          opacity: 0.2;
+          filter: grayscale(100%);
+        " src="https://fdg-ab.de/wp-content/uploads/2021/03/logo_fdg_neu_freigestellt.png" alt=""/>
+      <div class="column" style="height: 100%; z-index: 1; position: relative">
+        <div class="row" style="width: max-content">
+          <div class="column">
+            <img src="https://cdn.britannica.com/17/155017-050-9AC96FC8/Example-QR-code.jpg"
+                 style="height: 200px; width: 200px"/>
+
+            <bold style="text-align: center">Karten ID: {{id}}</bold>
+          </div>
+
+
+        </div>
+
+        <div class="row" style="margin-top: auto">
+          <div class="row" style="margin-top: auto">
+            <div>
+              <bold> Wann? </bold>
+              <p>irgendwann abends halt</p>
+            </div>
+            <div>
+              <bold> Wo? </bold>
+              <p>F.a.n. Arena, 63741 Aschaffenburg</p>
+            </div>
+            <div>
+              <bold> Was? </bold>
+              <p>Abiball 2023</p>
+            </div>
+          </div>
+          <div style="margin-left: auto">
+            <img style="height: 200px"
+                 src="https://le-cdn.website-editor.net/s/6b4dd80eb07f43e386d79c5d2ee6bbd5/dms3rep/multi/opt/Logo+ohne+Hintergrund-372w.png?Expires=1679069762&Signature=WmMdRXn~-SNOxQJW-1TFD6~2TbxQ2Kv-30HRYd-2toFTKlhL3SZE29NY4rSOPcJtwT3s1taGGE7gsE93YNHJYpVu9ZHS8Ez9gdBqJGjXjmxzKiLTpD5fW2mhuZeElIqlXi~FK~P6VfjxGQkjkDoRQSL~6TjbjnBsT8cIJ-4YSdxuCVVeRjnx50vkyHdCGT-FUprGKPI93ah1oDu9~7xhzHz5ouPgIfzWf56slR7La7udZ5tx11z5boVnh13oYEbBWO-4htf0BMfQF06GrGiGXLUwJF5Nxi0xjLOXcNUDMgX-GpwqXDt1A78S1zg4aEN1-wgsh8BFIjG4dUqvCEcPOw__&Key-Pair-Id=K2NXBXLF010TJW"
+                 alt=""/>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

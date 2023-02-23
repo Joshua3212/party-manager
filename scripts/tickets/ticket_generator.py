@@ -5,14 +5,14 @@ The cards will be stored in ./cards (hopefully :)
 import random
 import time
 
+import html2image
 import jinja2
-import pdfkit
 
 tickets_to_gen = 3
 bg_gradients = [
-    "linear-gradient(red, blue)",
-    "linear-gradient(red, green)",
-    "linear-gradient(yellow, blue)",
+    "linear-gradient( to right top, black, blue)",
+    "linear-gradient( to left bottom, black, green)",
+    "linear-gradient( to right bottom, black, yellow)",
 ]
 
 for i in range(1, tickets_to_gen + 1):
@@ -27,5 +27,4 @@ for i in range(1, tickets_to_gen + 1):
 
     template = jinja2.Environment(loader=fs).get_template("template.html")
     output_html = template.render(context)
-    print(output_html)
-    output_pdf = pdfkit.from_string(output_html, f"./tickets/{i}.pdf")
+    html2image.Html2Image(size=(1100, 900)).screenshot(html_str=output_html, save_as=f"{i}.png")

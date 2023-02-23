@@ -4,4 +4,5 @@ requests
 django-browser-reload
 opencv-python
 jinja2
-imgkit
+html2image
+qrcode

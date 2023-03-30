@@ -73,6 +73,7 @@ def verify_customer(request):
 
 def customers(request):
     if request.method == "GET":
+        print(store.list())
         return render(
             request,
             "customers.html",

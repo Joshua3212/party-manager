@@ -6,31 +6,27 @@
 
   <table>
     <thead>
-    <tr>
-      <td>
-        Vorname
-      </td><td>
-        Nachname
-      </td><td>
-        Geburtsdatum
-      </td>
-    </tr>
+      <tr>
+      {% for k,v in customers.0.items%}
+        <td>
+          {{k}}
+        </td>
+      {%endfor%}
+      </tr>
     </thead>
     <tbody>
 
-  {% for i in customers%}
-  <tr>
-    <td>
-      {{i.first_name}}
-    </td>
-    <td>
-     {{i.last_name}}
-    </td>
-    <td>
-        {{i.birthdate}}
-    </td>
-  </tr>
-  {% endfor%}
+    {% for i in customers%}
+      {%if i.created%}
+      <tr>
+        {% for k,v in i.items%}
+        <td>
+          {{v}}
+        </td>
+        {%endfor%}
+      </tr>
+      {%endif%}
+    {% endfor%}
     </tbody>
   </table>
 

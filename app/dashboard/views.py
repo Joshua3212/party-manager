@@ -19,6 +19,7 @@ def register_customer(request):
             "first_name": request.POST.get("first_name"),
             "last_name": request.POST.get("last_name"),
             "birthdate": request.POST.get("birthdate"),
+            "is_teacher": bool(int(request.POST.get("is_teacher"))),
             "created": int(time.time()),
         }
 

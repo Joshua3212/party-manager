@@ -1,52 +1,349 @@
 <html>
-  <head>
-    <style>
-      * {
-        /*border-radius: 10px;*/
-        margin: 0;
-      }
+  <head> </head>
+  <body style="margin: 0; width: 27cm !important; overflow: hidden">
+    <!-- card 1-->
+    <div>
+      <div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
 
-      .card {
-        color: white;
-        background: black;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-          sans-serif;
-        width: 1200px;
-        height: 808px;
-        padding: 50px;
-      }
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr1}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id1}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
 
-      .column {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr2}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id2}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
 
-      .row {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-      }
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr3}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id3}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
 
-      bold {
-        font-weight: bolder;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card" style="background-image:url(http://127.0.0.1:5500/tickets/card.jpeg); background-size: cover; ">
-      <div class="column" style="height: 100%; z-index: 1; position: relative">
-        <div class="row" style="width: max-content">
-          <div class="column" style="display:flex; flex-direction:column; width: 240px">
-            <img src="data:image/svg+xml;utf8,{{qr}}" style="
-                height: 200px;
-                width: 200px;
-                background: white;
-                padding: 20px;
-                border-radius:10px
-              "/>
-            <p style="margin:0 auto">Karten Nummer: {{id}}</p>
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr4}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id4}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
+
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr5}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id5}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
+
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr6}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id6}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
+
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr7}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id7}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            height: 9cm;
+            width: 13cm;
+            display: inline-block;
+            margin: 0;
+
+            background-image: url(http://127.0.0.1:5500/scripts/tickets/card.jpeg);
+            background-size: cover;
+          "
+        >
+          <div style="height: 100%; z-index: 1; position: relative">
+            <div style="width: max-content">
+              <div style="display: flex; flex-direction: column">
+                <img
+                  src="data:image/svg+xml;utf8,{{qr8}}"
+                  style="
+                    margin: 0.6cm;
+                    height: 1cm;
+                    width: 1cm;
+                    background: white;
+                    padding: 0.2cm;
+                    border-radius: 0.1cm;
+                  "
+                />
+                <p
+                  style="
+                    font-size: 0.2cm;
+                    margin-top: -0.3cm;
+                    margin-left: 0.2cm;
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  Karten Nummer: {{id8}}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

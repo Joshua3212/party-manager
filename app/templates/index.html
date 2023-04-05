@@ -17,13 +17,13 @@ var today = new Date();
 function putCookie(form)
                 //this should set the UserName cookie to the proper value;
   {
-   setCookie("x-username", form[0].username.value);
+   setCookie("x-name", form[0].username.value);
    setCookie("x-password", form[0].password.value);
 
     return true;
   }
 
-const cookie =  document.cookie.match(/^(.*;)?\s*x-username\s*=\s*[^;]+(.*)?$/)
+const cookie =  document.cookie.match(/^(.*;)?\s*x-name\s*=\s*[^;]+(.*)?$/)
 console.log(cookie)
   </script>
 

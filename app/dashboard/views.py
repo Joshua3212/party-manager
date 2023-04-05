@@ -15,11 +15,12 @@ def register_customer(request):
         return render(request, "register_customer.html", {})
     if request.method == "POST":
         customer = {
-            "_id": request.POST.get("identifier"),
+            "id": request.POST.get("identifier"),
             "first_name": request.POST.get("first_name"),
             "last_name": request.POST.get("last_name"),
             "birthdate": request.POST.get("birthdate"),
             "is_teacher": bool(int(request.POST.get("is_teacher"))),
+            "created_by": request.COOKIES.get("x-name"),
             "created": int(time.time()),
         }
 

@@ -12,9 +12,9 @@ The config is supposed to be saved in Huddu Store with the id **config**
 it should look something like this:
 
     {
-        "users": [
+        "teams": [
             {
-                "username": "user1",
+                "name": "team1",
                 "password": "password1"
             }
         ]

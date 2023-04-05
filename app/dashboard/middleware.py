@@ -13,10 +13,11 @@ class AuthMiddleware:
                 "Huddu Store config has to be defined; Check README.md for more info "
             )
 
-        for i in config["users"]:
+        for i in config["teams"]:
+
             if (
-                request.COOKIES.get("x-password") == i["password"]
-                and request.COOKIES.get("x-username") == i["username"]
+                    request.COOKIES.get("x-password") == i["password"]
+                    and request.COOKIES.get("x-name") == i["name"]
             ):
                 return self.get_response(request)
 

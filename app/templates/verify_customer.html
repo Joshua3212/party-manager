@@ -1,40 +1,63 @@
 {%extends "base.html"%}{%block main%}
 
 <div class="wrapper">
-  <h1>Kunden registrieren</h1>
+  <h1>Kunden verifizieren</h1>
   <hr/>
   {%if success%}
-  <flash>Kunden gefunden ✅ </flash>
 
 
-  <table>
-    <thead>
+  <div>
 
-    </thead>
-    <tbody>
-
-    {%for k,v in success.items%}
-
-    <tr style="gap:0">
-      <td>
-        <bold>
-          {{k}}
-        </bold>
-      </td>
-      <td>{{v}}</td>
-    </tr>
-
-
-    {%endfor%}
-    </tbody>
-  </table>
+<h1>
+  {{success.first_name}}
+<span style="font-size:30px" class="dimmed">
+  {{success.last_name}}
+</span>
+</h1>
 
 
 
+    <div class="row">
+
+    <div style="width: 30%">
+      <bold>Geburtsdatum</bold>
+      {{success.birthdate}}
+    </div>
+
+      <div style="width:30%">
+<bold>Ist Lehrer?</bold>
+
+
+      {%if success.is_teacher%}
+         ✅
+        {%else%}
+        Nein
+          {%endif%}
+
+      </div>
+
+
+
+
+    </div>
+<div class="row">
+      <div style="width: 30%">
+      <bold>Karten id</bold>
+      {{success.id}}
+    </div>
+</div>
+  </div>
+
+
+
+
+<hr>
   {%endif%}
   {%if error%}
   <flash-danger>
-    <pre>{{error}}</pre>
+    <bold>
+    Keinen Kunden gefunden.</bold><br><br>
+      Error:    <pre>{{error}}</pre>
   </flash-danger>
   {%endif%}
   <form method="post" enctype="multipart/form-data">

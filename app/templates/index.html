@@ -17,7 +17,7 @@ var today = new Date();
 function putCookie(form)
                 //this should set the UserName cookie to the proper value;
   {
-   setCookie("x-name", form[0].username.value);
+   setCookie("x-name", form[0].name.value);
    setCookie("x-password", form[0].password.value);
 
     return true;
@@ -30,8 +30,8 @@ console.log(cookie)
 
     {%if request.GET.login %}
   <form>
-    <label>Username</label>
- <input type="text" name="username">
+    <label>Team</label>
+ <input type="text" name="name">
     <label>Password</label>
  <input type="password" name="password">
     <button id="submit" onclick="putCookie(document.getElementsByTagName('form'));">Login</button>

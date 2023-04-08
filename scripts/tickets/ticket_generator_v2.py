@@ -32,12 +32,17 @@ for i in range(1, int(total_tickets / per_page) + 1):
 
     config = pdfkit.configuration(wkhtmltopdf="/usr/local/bin/wkhtmltopdf")
     output_pdf = f"./out/{i}.pdf"
-    pdfkit.from_string(output_text, output_pdf, configuration=config, options={
-        'margin-top': '0in',
-        'margin-right': '0in',
-        'margin-bottom': '0in',
-        'margin-left': '0in',
-        "page-height": "29.7cm",
-        "page-width": "21cm",
-        'no-outline': None
-    })
+    pdfkit.from_string(
+        output_text,
+        output_pdf,
+        configuration=config,
+        options={
+            "margin-top": "0in",
+            "margin-right": "0in",
+            "margin-bottom": "0in",
+            "margin-left": "0in",
+            "page-height": "29.7cm",
+            "page-width": "21cm",
+            "no-outline": None,
+        },
+    )

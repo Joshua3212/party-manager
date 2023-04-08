@@ -1,8 +1,8 @@
 {
-  "users": [
+  "teams": [
     {
-      "username": "admin",
-      "password": "12345"
+      "name": "team1",
+      "password": "password1"
     }
   ]
 }

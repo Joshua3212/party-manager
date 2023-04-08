@@ -2,8 +2,10 @@ import os
 
 from huddu import Store
 
-store = Store(client_id="7ba6acae-84f9-4dc1-bba1-a86f6e4f91d2", client_secret=os.getenv("STORE_SECRET"))
-
+store = Store(
+    client_id="7ba6acae-84f9-4dc1-bba1-a86f6e4f91d2",
+    client_secret=os.getenv("STORE_SECRET"),
+)
 
 
 config = store.get("config")

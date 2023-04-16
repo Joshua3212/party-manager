@@ -19,12 +19,25 @@ def register_customer(request):
             "first_name": request.POST.get("first_name"),
             "last_name": request.POST.get("last_name"),
             "birthdate": request.POST.get("birthdate"),
-            "is_teacher": bool(int(request.POST.get("is_teacher"))),
+            "is_teacher": bool(int(request.POST.get("is_teacher", 0))),
             "created_by": request.COOKIES.get("x-name"),
             "created": int(time.time()),
         }
 
-        store.put(request.POST.get("identifier"), customer)
+        try:
+            store.put(request.POST.get("identifier"), customer)
+            store.put(
+                request.POST.get("first_name") + " " + request.POST.get("last_name"),
+                request.POST.get("identifier"),
+            )
+        except Exception:
+            return render(
+                request,
+                "register_customer.html",
+                {
+                    "error": "Kartennummern wurde schon vergeben. Kartennummern können nur einmal vergeben werden"
+                },
+            )
 
         return render(request, "register_customer.html", {"success": True})
 
@@ -75,15 +88,24 @@ def verify_customer(request):
 
 def customers(request):
     if request.method == "GET":
-        print(store.list())
+        data = store.list(
+            request.GET.get("limit", 25),
+            request.GET.get("skip", 0),
+            prefix=request.GET.get("search", None),
+        )
+
+        res = []
+        for i in data:
+            if type(i["value"]) == int and request.GET.get("search"):
+                i = store.get(i["value"])
+                res.append(i)
+            else:
+                res.append(i["value"])
+
         return render(
             request,
             "customers.html",
-            {
-                "customers": store.list(
-                    request.GET.get("limit", 25), request.GET.get("skip", 0)
-                )
-            },
+            {"customers": res, "search": request.GET.get("search", "")},
         )
 
 

@@ -13,14 +13,15 @@ class AuthMiddleware:
                 "Huddu Store config has to be defined; Check README.md for more info "
             )
 
-        for i in config["teams"]:
-
-            if (
-                request.COOKIES.get("x-password") == i["password"]
-                and request.COOKIES.get("x-name") == i["name"]
-            ):
-                return self.get_response(request)
-
+        try:
+            for i in config["teams"]:
+                if (
+                    request.COOKIES.get("x-password") == i["password"]
+                    and request.COOKIES.get("x-name") == i["name"]
+                ):
+                    return self.get_response(request)
+        except Exception:
+            raise Exception("Config is malformed")
         if not request.path == "/" or not request.GET.get("login"):
             return redirect("/?login=1")
         return self.get_response(request)

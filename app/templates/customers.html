@@ -10,7 +10,7 @@
 
 
     <form method="get" style="display:flex;flex-direction:row; height:max-content; margin-top:auto; margin-bottom:auto"><input
-		    name="search" placeholder="Name" value="{{search}}"/><button>Suchen</button>
+            name="search" placeholder="Name" value="{{search}}"/><button>Suchen</button>
 
       {%if search%}
       <a href="/customers" style="width:max-content; margin:auto">reset</a>
@@ -44,6 +44,26 @@
     {% endfor%}
     </tbody>
   </table>
+
+  <div class="row">
+    <div style="margin-left:auto; width:max-content" class="row">
+
+
+
+      {% if has_skip%}
+      <a href="?skip={{skip|add:-25}}">
+        Previous
+      </a>
+      {%endif%}
+      <a href="?skip={{skip|add:25}}">
+        Next
+      </a>
+
+    </div>
+
+
+
+  </div>
 
 </div>
 

@@ -105,7 +105,12 @@ def customers(request):
         return render(
             request,
             "customers.html",
-            {"customers": res, "search": request.GET.get("search", "")},
+            {
+                "customers": res, "search": request.GET.get("search", ""), "limit": request.GET.get("limit", 25),
+
+                "has_skip": bool(request.GET.get("skip", 0)),
+                "skip": request.GET.get("skip", 0)
+            },
         )
 
 

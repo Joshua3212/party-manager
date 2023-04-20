@@ -1,3 +1,4 @@
+import json
 import os
 
 from huddu import Store
@@ -7,8 +8,10 @@ store = Store(
     client_secret=os.getenv("STORE_SECRET"),
 )
 
+try:
+    config = json.loads(store.get("config"))
 
-config = store.get("config")
-
+except:
+    config = store.get("config")
 if not config:
     raise Exception("No config set in Store!")

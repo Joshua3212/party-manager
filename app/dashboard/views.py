@@ -30,6 +30,10 @@ def register_customer(request):
                 request.POST.get("first_name") + " " + request.POST.get("last_name"),
                 request.POST.get("identifier"),
             )
+            store.put(
+                request.POST.get("last_name") + " " + request.POST.get("first_name"),
+                request.POST.get("identifier"),
+            )
         except Exception:
             return render(
                 request,
@@ -106,10 +110,11 @@ def customers(request):
             request,
             "customers.html",
             {
-                "customers": res, "search": request.GET.get("search", ""), "limit": request.GET.get("limit", 25),
-
+                "customers": [json.loads(i) for i in set([json.dumps(i) for i in res])],  # super hacky but it works!
+                "search": request.GET.get("search", ""),
+                "limit": request.GET.get("limit", 25),
                 "has_skip": bool(request.GET.get("skip", 0)),
-                "skip": request.GET.get("skip", 0)
+                "skip": request.GET.get("skip", 0),
             },
         )
 

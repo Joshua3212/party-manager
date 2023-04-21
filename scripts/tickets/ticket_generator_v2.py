@@ -4,7 +4,7 @@ import jinja2
 import pdfkit
 import qrcode.image.svg
 
-total_tickets = 600
+total_tickets = 750
 per_page = 8
 current_num = 0
 

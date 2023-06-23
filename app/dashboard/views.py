@@ -1,7 +1,6 @@
 import json
 import time
 
-import cv2
 from django.shortcuts import render
 
 from app.config import mongo_collection
@@ -55,12 +54,7 @@ def verify_customer(request):
                     destination.write(chunk)
                     destination.close()
 
-            try:
-                img = cv2.imread("tmp.image")
-                detect = cv2.QRCodeDetector()
-                identifier, points, straight_qrcode = detect.detectAndDecode(img)
-            except:
-                error = {"error": "Kein QR code erkannt."}
+            error = {"error": "Kein QR code erkannt."}
 
         # override token if manually provided
         if request.POST.get("identifier"):

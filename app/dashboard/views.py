@@ -105,8 +105,8 @@ def customers(request):
         else:
             data = mongo_collection.find(
                 {},
-                limit=request.GET.get("limit", 25),
-                skip=request.GET.get("skip", 0),
+                limit=int(request.GET.get("limit", 25)),
+                skip=int(request.GET.get("skip", 0)),
             )
         res = []
 

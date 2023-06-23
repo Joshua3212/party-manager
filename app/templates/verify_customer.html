@@ -62,9 +62,7 @@
   {%endif%}
   <form method="post" enctype="multipart/form-data">
     {%csrf_token%}
-    <label>Scan QR</label>
-    <input type="file" name="qr" accept="image/*;capture=camera">
-    <label>Kartennummer</label>
+      <label>Kartennummer</label>
     <input name="identifier"/>
     <button>Verifizieren</button>
   </form>

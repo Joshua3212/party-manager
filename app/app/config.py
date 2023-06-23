@@ -1,17 +1,11 @@
-import json
 import os
 
-from huddu import Store
+from pymongo import MongoClient
 
-store = Store(
-    client_id="7ba6acae-84f9-4dc1-bba1-a86f6e4f91d2",
-    client_secret=os.getenv("STORE_SECRET"),
+mongo = MongoClient(
+    os.getenv("MONGO_URL")
 )
 
-try:
-    config = json.loads(store.get("config"))
+mongo_collection = mongo.data.data
 
-except:
-    config = store.get("config")
-if not config:
-    raise Exception("No config set in Store!")
+config = {"teams": [{"name": "test", "password": "test"}]}

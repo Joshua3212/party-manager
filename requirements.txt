@@ -6,3 +6,4 @@ opencv-python
 jinja2
 html2image
 qrcode
+pymongo

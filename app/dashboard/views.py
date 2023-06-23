@@ -4,7 +4,7 @@ import time
 import cv2
 from django.shortcuts import render
 
-from app.config import store
+from app.config import mongo_collection
 
 
 # Create your views here.
@@ -25,15 +25,7 @@ def register_customer(request):
         }
 
         try:
-            store.put(request.POST.get("identifier"), customer)
-            store.put(
-                request.POST.get("first_name") + " " + request.POST.get("last_name"),
-                request.POST.get("identifier"),
-            )
-            store.put(
-                request.POST.get("last_name") + " " + request.POST.get("first_name"),
-                request.POST.get("identifier"),
-            )
+            mongo_collection.insert_one(customer)
         except Exception:
             return render(
                 request,
@@ -74,7 +66,7 @@ def verify_customer(request):
         if request.POST.get("identifier"):
             identifier = request.POST.get("identifier")
         if identifier:
-            booking = store.get(identifier)
+            booking = mongo_collection.find_one({"id": identifier})
             if not booking:
                 error = {"error": f"Keine Buchung für {identifier} gefunden"}
         else:
@@ -92,25 +84,48 @@ def verify_customer(request):
 
 def customers(request):
     if request.method == "GET":
-        data = store.list(
-            request.GET.get("limit", 25),
-            request.GET.get("skip", 0),
-            prefix=request.GET.get("search", None),
-        )
-
+        if request.GET.get("search", None):
+            data = mongo_collection.find(
+                {
+                    "$or": [
+                        {
+                            "id": {
+                                "$regex": str(request.GET.get("search", "")),
+                            }
+                        },
+                        {
+                            "first_name": {
+                                "$regex": request.GET.get("search", ""),
+                            }
+                        },
+                        {
+                            "last_name": {
+                                "$regex": request.GET.get("search", ""),
+                            }
+                        },
+                    ]
+                },
+                limit=request.GET.get("limit", 25),
+                skip=request.GET.get("skip", 0),
+            )
+        else:
+            data = mongo_collection.find(
+                {},
+                limit=request.GET.get("limit", 25),
+                skip=request.GET.get("skip", 0),
+            )
         res = []
-        for i in data:
-            if type(i["value"]) == int and request.GET.get("search"):
-                i = store.get(i["value"])
-                res.append(i)
-            else:
-                res.append(i["value"])
 
+        for i in data:
+            del i["_id"]
+            res.append(i)
         return render(
             request,
             "customers.html",
             {
-                "customers": [json.loads(i) for i in set([json.dumps(i) for i in res])],  # super hacky but it works!
+                "customers": [
+                    json.loads(i) for i in set([json.dumps(i) for i in res])
+                ],  # super hacky but it works!
                 "search": request.GET.get("search", ""),
                 "limit": request.GET.get("limit", 25),
                 "has_skip": bool(request.GET.get("skip", 0)),

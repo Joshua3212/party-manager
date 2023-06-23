@@ -26,7 +26,8 @@ DEBUG = os.getenv("DEBUG", 1)
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", "svc_366305e1-ea05-4e88-8754-19afc3b2ca22.huddu.io"]
 
-CSRF_TRUSTED_ORIGINS = ["https://svc_366305e1-ea05-4e88-8754-19afc3b2ca22.huddu.io"]
+CSRF_TRUSTED_ORIGINS = ["https://*.huddu.io", "https://0.0.0.0",
+                        "http://0.0.0.0"]
 # Application definition
 
 INSTALLED_APPS = [

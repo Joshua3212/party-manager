@@ -63,9 +63,13 @@
   <form method="post" enctype="multipart/form-data">
     {%csrf_token%}
     <label>Kartennummer</label>
-    <input name="identifier"/>
+    <input id="qrscan" name="identifier" autofocus/>
     <button>Verifizieren</button>
   </form>
 </div>
 
-{%endblock %}
+<script>
+    window.onload = function() {
+    var input = document.getElementById("qrscan").focus();
+}
+</script>{%endblock %}

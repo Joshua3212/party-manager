@@ -8,4 +8,4 @@ mongo = MongoClient(
 
 mongo_collection = mongo.data.data
 
-config = {"teams": [{"name": "test", "password": "test"}]}
+config = {"teams": [{"name": "admin", "password": "12345"}]}

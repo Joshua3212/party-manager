@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-x%ih-vo#re#tiq49y(4m(vjg1yq(!95ex(o_c&$sv=jue@9dam
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", 1)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", "svc_366305e1-ea05-4e88-8754-19afc3b2ca22.huddu.io"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", "party-manager-85803.huddu.io"]
 
 CSRF_TRUSTED_ORIGINS = ["https://*.huddu.io", "https://0.0.0.0",
                         "http://0.0.0.0"]
